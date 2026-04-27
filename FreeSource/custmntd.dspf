@@ -1,0 +1,75 @@
+     A*===========================================================
+     A*  CUSMNTD - CUSTOMER MAINTENANCE DISPLAY FILE
+     A*  SET INDICATORS BASED ON MODE
+     A*  61=ON  MEANS DISPLAY MODE - FIELDS PROTECTED
+     A*  61=OFF MEANS CHANGE MODE - FIELDS INPUT CAPABLE
+     A*===========================================================
+     A                                      INDARA
+     A                                      CA12(12 'Cancel')
+     A*
+     A          R CUSTMNT                   CHGINPDFT
+     A                                  1 28'Customer Maintenance'
+     A                                      DSPATR(HI)
+     A                                      COLOR(WHT)
+     A                                  1 64'Date:'
+     A                                      COLOR(WHT)
+     A            MDATE          8Y 0O  1 70EDTWRD('  /  /    ')
+     A                                      COLOR(WHT)
+     A            MDSPMODE      20A  O  2 28COLOR(YLW)
+     A                                  4  2'Customer Number:'
+     A                                      COLOR(TRQ)
+     A            MCUSNO         7A  O  4 19COLOR(TRQ)
+     A                                      DSPATR(UL)
+     A                                      DSPATR(HI)
+
+     A*
+     A                                  6  2'Name:'
+     A            MCUSNAME      30A  B  6 11DSPATR(UL)
+     A                                      LOWER
+     A  61                                  DSPATR(PR)
+     A*
+     A                                  7  2'Addr 1:'
+     A            MCUSADDR1     30A  B  7 11DSPATR(UL)
+     A                                      LOWER
+     A  61                                  DSPATR(PR)
+     A*
+     A                                  8  2'Addr 2:'
+     A            MCUSADDR2     30A  B  8 11DSPATR(UL)
+     A                                      LOWER
+     A  61                                  DSPATR(PR)
+     A*
+     A                                  9  2'City:'
+     A            MCUSCITY      20A  B  9 11DSPATR(UL)
+     A                                      LOWER
+     A  61                                  DSPATR(PR)
+     A*
+     A                                 10  2'State:'
+     A            MCUSSTATE      2A  B 10 11DSPATR(UL)
+     A  61                                  DSPATR(PR)
+     A*                                     CHANGE(70)
+     A                                 11  2'Zip:'
+     A            MCUSZIP       10A  B 11 11DSPATR(UL)
+     A  61                                  DSPATR(PR)
+     A*
+     A                                 12  2'Phone:'
+     A            MCUSPHONE     14A  B 12 11DSPATR(UL)
+     A  61                                  DSPATR(PR)
+     A*
+     A                                 13  2'EMail:'
+     A            MCUSEMAIL     50A  B 13 11DSPATR(UL)
+     A                                      LOWER
+     A  61                                  DSPATR(PR)
+     A*
+     A                                 14  2'Balance:'
+     A            MCUSBAL       13Y 2O 14 11EDTWRD('  ,   ,   ,  0.  ')
+     A                                      DSPATR(UL)
+     A*
+     A                                 15  2'Status:'
+     A            MCUSSTATUS     1A  B 15 11DSPATR(UL)
+     A  61                                  DSPATR(PR)
+     A                                 15 14'(A=Active  I=Inactive)'
+     A                                      COLOR(BLU)
+     A*
+     A            F12MSG        10A  O 23  2COLOR(TRQ)
+     A            MMSG          79A  O 24  2COLOR(RED)
+

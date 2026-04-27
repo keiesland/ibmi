@@ -1,0 +1,64 @@
+-*   A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA
+     A                                      CA03(03 'Exit')
+     A                                      CF05(05 'Fold/Unfold')
+     A*
+     A          R CUSTSL                    SFL
+     A            SFLSEL         1A  B  8  3COLOR(BLU)
+     A            SCUSNO         7A  O  8  6
+     A            SCUSNAME      30A  O  8 15
+     A            SCUSSTATUS     1A  O  8 47
+     A            SCUSBAL       13Y 2O  8 50EDTWRD('  ,   ,   ,  0.  ')
+     A*
+     A            SCUSADDR1     30A  O  9  6
+     A            SCUSCITY      20A  O  9 38
+     A            SCUSSTATE      2A  O  9 60
+     A            SCUSZIP       10A  O  9 64
+     A*
+     A          R CUSTSC                    SFLCTL(CUSTSL)
+     A                                      SFLSIZ(0200)
+     A                                      SFLPAG(0006)
+     A                                      OVERLAY
+     A*                                     SFLFOLD(CF05)
+     A                                      SFLDROP(CF05)
+     A                                      SFLMODE(&FOLDFLAG)
+     A  31                                  SFLDSP
+     A  31                                  SFLDSPCTL
+     A  31                                  SFLEND(*MORE)
+     A  33                                  SFLCLR
+     A            FOLDFLAG       1A  H
+     A                                  1 32'Customer Inquiry'
+     A                                       COLOR(WHT)
+     A                                       DSPATR(HI)
+     A            HDATE          8Y 0O  1 70EDTWRD('  /  /    ')
+     A                                       COLOR(WHT)
+     A                                       DSPATR(HI)
+     A                                  3  2'Position to customer:'
+     A                                       COLOR(TRQ)
+     A            HPOSIT         7A  B  3 24 COLOR(TRQ)
+     A*
+     A                                  4  2'2=Change'
+     A                                       COLOR(YLW)
+     A                                  4 14'4=Delete'
+     A                                       COLOR(YLW)
+     A                                  4 25'5=Display'
+     A                                       COLOR(YLW)
+     A                                  7  2'Opt'
+     A                                       COLOR(WHT)
+     A                                  7  6'Cust#'
+     A                                       COLOR(WHT)
+     A                                  7 15'Customer Name'
+     A                                       COLOR(WHT)
+     A                                  7 45'Stat'
+     A                                       COLOR(WHT)
+     A                                  7 59'Balance'
+     A                                       COLOR(WHT)
+     A*
+     A          R CUSTFTR
+     A                                      OVERLAY
+     A                                 23  2'F3=Exit'
+     A                                       COLOR(TRQ)
+     A                                 23 14'F5=Fold/Unfold'
+     A                                       COLOR(TRQ)
+     A            WMSG          79A  O 24  2
+     A                                       COLOR(RED)
