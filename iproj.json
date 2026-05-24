@@ -1,4 +1,5 @@
 {
   "description": "keiesland.ibmi",
-  "buildCommand": "makei build"
+  "buildCommand": "makei build",
+  "deployLocation": "/home/KEIESLAND/builds/private"
 }
