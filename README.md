@@ -17,4 +17,4 @@ ASP.NET Core MVC, Blazor, and Azure DevOps experience.
 - CI/CD via GitHub Actions / Azure DevOps
 
 ## Pinned Repositories
-👇 See below for working examples of both platforms
+👆 See above for working examples of both platforms
